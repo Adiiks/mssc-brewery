@@ -9,6 +9,7 @@ import pl.adiks.msscbrewery.service.BeerService;
 
 import java.util.UUID;
 
+@Deprecated
 @RestController
 @RequestMapping("/api/v1/beer")
 public class BeerController {
