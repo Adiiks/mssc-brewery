@@ -4,7 +4,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.adiks.msscbrewery.dto.BeervoDTO;
+import pl.adiks.msscbrewery.dto.BeerDTO;
 import pl.adiks.msscbrewery.service.BeerService;
 
 import java.util.UUID;
@@ -20,15 +20,15 @@ public class BeerController {
     }
 
     @GetMapping("/{beerId}")
-    public ResponseEntity<BeervoDTO> getBeer(@PathVariable UUID beerId) {
+    public ResponseEntity<BeerDTO> getBeer(@PathVariable UUID beerId) {
 
         return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity createBeer(BeervoDTO beerDTO) {
+    public ResponseEntity createBeer(BeerDTO beerDTO) {
 
-        BeervoDTO savedBeer = beerService.saveBeer(beerDTO);
+        BeerDTO savedBeer = beerService.saveBeer(beerDTO);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Location", "/api/v1/beer/" + savedBeer.getId().toString());
@@ -37,7 +37,7 @@ public class BeerController {
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity updateBeer(BeervoDTO beerDTO, @PathVariable UUID beerId) {
+    public ResponseEntity updateBeer(BeerDTO beerDTO, @PathVariable UUID beerId) {
 
         beerService.updateBeer(beerDTO, beerId);
 

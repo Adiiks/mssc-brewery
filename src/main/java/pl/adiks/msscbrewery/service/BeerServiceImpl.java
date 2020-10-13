@@ -1,7 +1,7 @@
 package pl.adiks.msscbrewery.service;
 
 import org.springframework.stereotype.Service;
-import pl.adiks.msscbrewery.dto.BeervoDTO;
+import pl.adiks.msscbrewery.dto.BeerDTO;
 
 import java.util.UUID;
 
@@ -9,22 +9,22 @@ import java.util.UUID;
 public class BeerServiceImpl implements BeerService {
 
     @Override
-    public BeervoDTO getBeerById(UUID beerId) {
-        return BeervoDTO.builder().id(UUID.randomUUID())
+    public BeerDTO getBeerById(UUID beerId) {
+        return BeerDTO.builder().id(UUID.randomUUID())
                 .beerName("Tyskie")
                 .beerStyle("Najlepsze")
                 .build();
     }
 
     @Override
-    public BeervoDTO saveBeer(BeervoDTO beerDTO) {
-        return BeervoDTO.builder()
+    public BeerDTO saveBeer(BeerDTO beerDTO) {
+        return BeerDTO.builder()
                 .id(UUID.randomUUID())
                 .build();
     }
 
     @Override
-    public void updateBeer(BeervoDTO beerDTO, UUID beerId) {
+    public void updateBeer(BeerDTO beerDTO, UUID beerId) {
     }
 
 }

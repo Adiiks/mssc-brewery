@@ -1,14 +1,14 @@
 package pl.adiks.msscbrewery.service;
 
-import pl.adiks.msscbrewery.dto.BeervoDTO;
+import pl.adiks.msscbrewery.dto.BeerDTO;
 
 import java.util.UUID;
 
 public interface BeerService {
 
-    BeervoDTO getBeerById(UUID beerId);
+    BeerDTO getBeerById(UUID beerId);
 
-    BeervoDTO saveBeer(BeervoDTO beerDTO);
+    BeerDTO saveBeer(BeerDTO beerDTO);
 
-    void updateBeer(BeervoDTO beerDTO, UUID beerId);
+    void updateBeer(BeerDTO beerDTO, UUID beerId);
 }
