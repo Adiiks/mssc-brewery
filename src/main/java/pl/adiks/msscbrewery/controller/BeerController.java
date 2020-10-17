@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.adiks.msscbrewery.dto.BeerDTO;
 import pl.adiks.msscbrewery.service.BeerService;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @Deprecated
@@ -27,7 +28,7 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity createBeer(@RequestBody BeerDTO beerDTO) {
+    public ResponseEntity createBeer(@Valid @RequestBody BeerDTO beerDTO) {
 
         BeerDTO savedBeer = beerService.saveBeer(beerDTO);
 
@@ -38,7 +39,7 @@ public class BeerController {
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity updateBeer(@RequestBody BeerDTO beerDTO, @PathVariable UUID beerId) {
+    public ResponseEntity updateBeer(@Valid @RequestBody BeerDTO beerDTO, @PathVariable UUID beerId) {
 
         beerService.updateBeer(beerDTO, beerId);
 
