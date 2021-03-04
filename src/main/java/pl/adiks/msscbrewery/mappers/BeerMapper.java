@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import pl.adiks.msscbrewery.domain.Beer;
 import pl.adiks.msscbrewery.dto.BeerDTO;
 
-@Mapper
+@Mapper(uses = {DateMapper.class})
 public interface BeerMapper {
 
     BeerDTO beerToBeerDto(Beer beer);
